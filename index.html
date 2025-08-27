@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Michael Lundquist — Home</title>
+  <meta name="description" content="Personal website of Omar Espinoza: projects, blog, and contact." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" href="styles/styles.css" as="style" />
+  <link rel="stylesheet" href="styles/styles.css" />
+</head>
+<body>
+  <header class="site-header container">
+    <a class="brand" href="/">OE<span class="dot">.</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">☰</button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="/blog/">Blog</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero__text">
+        <h1>Hi, I’m Mike.</h1>
+        <p>Space Physics Phd Student at UCLA. Looking to pour my brain out onto the internet. This site is under active construction.
+        </p>
+        <div class="cta-row">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn btn--ghost" href="/blog/">Read the Blog</a>
+        </div>
+      </div>
+      <div class="hero__media">
+        <img src="assets/profile.jpg" alt="Portrait of Mike" loading="lazy" />
+      </div>
+    </section>
+
+    <section id="projects" class="container">
+      <h2>Featured Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>PhD Studies</h3>
+          <p>My research aims to unravel the dynamics of the coupled Magnetosphere, Ionosphere, Thermosphere system. Answering these questions should help us better mitigate detrimental space weather events.</p>
+          <a class="card__link" href="#">Overview →</a>
+        </article>
+        
+        <article class="card">
+          <h3>Blog</h3>
+          <p>Listen to me think</p>
+          <a class="card__link" href="#">Overview →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="container">
+      <h2>About</h2>
+      <p>
+        I want to make science cool, in a really funny way.
+      </p>
+    </section>
+
+    <section id="contact" class="container">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:mlundqui@ucla.edu">mlundqui@ucla.edu</a></p>
+      <p>GitHub: <a href="https://github.com/mlundqui" target="_blank" rel="noopener">@mlundqui</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <small>© <span id="year"></span> Michael Lundquist. All rights reserved.</small>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

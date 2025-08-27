@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog — Omar Espinoza</title>
+  <link rel="stylesheet" href="../styles/styles.css" />
+</head>
+<body>
+  <header class="site-header container">
+    <a class="brand" href="/">OE<span class="dot">.</span></a>
+    <nav class="site-nav"><a href="/">Home</a><a href="/blog/">Blog</a></nav>
+  </header>
+  <main class="container">
+    <h1>Blog</h1>
+    <ul class="post-list" id="post-list"></ul>
+  </main>
+  <footer class="site-footer container">
+    <small>© <span id="year"></span> Omar Espinoza</small>
+  </footer>
+  <script>
+    // Super simple: manually maintain an array of posts for now.
+    const posts = [
+      { title: 'Hello, World', date: '2025-08-27', url: 'posts/hello-world.html' },
+    ];
+    const ul = document.getElementById('post-list');
+    posts.forEach(p => {
+      const li = document.createElement('li');
+      li.innerHTML = `<a href="${p.url}">${p.title}</a> <small>— ${p.date}</small>`;
+      ul.appendChild(li);
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
