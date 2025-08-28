@@ -4,27 +4,36 @@ html, body { margin: 0; padding: 0; }
 img { max-width: 100%; display: block; }
 
 :root {
-  --bg: #0b0c0f;
+  --bg: #000000;
   --surface: #12141a;
   --text: #e9edf1;
   --muted: #b4bcc6;
   --accent: #58a6ff;
-  --card: #151823;
+  --card: #002d60;
   --radius: 16px;
   --container: 1100px;
+  --font-serif: "Fraunces", ui-serif, Georgia, Cambria, "Times New Roman", serif;
+  --font-sans: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bg: #ffffff; --surface: #f7f7fb; --text: #0e1116; --muted: #5b616e; --accent: #0d6efd; --card: #ffffff;
+    --bg: #ffffff; --surface: #f7f7fb; --text: #0e1116; --muted: #5b616e; --accent: #5a99f8; --card: #ffffff;
   }
 }
 
 body {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-  background: radial-gradient(1200px 800px at 70% -20%, rgba(88,166,255,0.12), transparent), var(--bg);
+  font-family: var(--font-sans);
+  background: radial-gradient(1200px 800px at 70% -20%, rgba(34, 134, 249, 0.12), transparent), var(--bg);
   color: var(--text);
   line-height: 1.6;
+}
+
+h1,h2,h3 { 
+  font-family: var(--font-serif); 
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  margin: 40px 0 16px; 
 }
 
 .container { max-width: var(--container); margin-inline: auto; padding: 24px; }
@@ -50,7 +59,6 @@ body {
 .btn--ghost { background: transparent; border: 1px solid color-mix(in hsl, var(--accent) 50%, white); color: var(--text); }
 .cta-row { display: flex; gap: 12px; margin-top: 14px; }
 
-h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); margin: 40px 0 16px; }
 .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .card { background: var(--card); border: 1px solid rgba(255,255,255,0.06); padding: 16px; border-radius: var(--radius); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
 .card__link { display: inline-block; margin-top: 8px; color: var(--accent); text-decoration: none; }
@@ -65,4 +73,13 @@ h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); margin: 40px 0 16px; }
   .nav-toggle { display: inline-block; }
   .site-nav { position: fixed; inset: 60px 16px auto 16px; background: var(--surface); border: 1px solid rgba(255,255,255,0.08); padding: 12px; border-radius: 12px; display: none; flex-direction: column; }
   .site-nav.open { display: flex; }
+
+}
+a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent);
 }
