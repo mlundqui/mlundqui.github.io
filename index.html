@@ -12,7 +12,8 @@
 
 </head>
 <body>
-  <header class="site-header container">
+  <header class="site-header">
+    <div class="container">
     <a class="brand" href="/">ML<span class="dot">.</span></a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">☰</button>
     <nav id="site-nav" class="site-nav" aria-label="Primary">
@@ -23,6 +24,7 @@
       <a href="#contact">Contact</a>
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
     </nav>
+    </div>
   </header>
 
   <main>
@@ -36,8 +38,15 @@
           <a class="btn btn--ghost" href="/blog/">Read the Blog</a>
         </div>
       </div>
-      <div class="hero__media">
-        <img src="assets/student.gif" alt="Portrait of Mike" loading="lazy" width="600px"/>
+      <div
+        id="hero-photo"
+        class="photo-flip"
+        role="button"
+        tabindex="0"
+        aria-label="Flip photo"
+      >
+        <img class="side front" src="assets/student.gif" alt="Mike – student gif" loading="lazy" width="600" />
+        <img class="side back"  src="assets/me.jpg"       alt="Mike – portrait"    loading="lazy" width="600" />
       </div>
     </section>
 
