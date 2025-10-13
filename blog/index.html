@@ -4,29 +4,52 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Blog — Michael Lundquist</title>
+  <meta name="description" content="Blog posts by Your Name." />
+  <link rel="icon" href="../assets/gratefuldead.gif" type="image/gif" />
+  <link rel="preload" href="../styles/styles.css" as="style" />
   <link rel="stylesheet" href="../styles/styles.css" />
+
 </head>
 <body>
-  <header class="site-header container">
-    <a class="brand" href="/">ML<span class="dot">.</span></a>
-    <nav class="site-nav"><a href="/">Home</a><a href="/blog/">Blog</a></nav>
+  <!-- SAME HEADER AS HOME -->
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../">ML<span class="dot">.</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">☰</button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <a href="../">Home</a>
+        <a href="../#projects">Projects</a>
+        <a href="../blog/">Blog</a>
+        <a href="../#about">About</a>
+        <a href="../#contact">Contact</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
+      </nav>
+    </div>
   </header>
+
   <main class="container">
     <h1>Blog</h1>
     <ul class="post-list" id="post-list"></ul>
   </main>
-  <footer class="site-footer container">
+
+  <footer class="site-footer container" style="margin-top:40px">
     <small>© <span id="year"></span> Michael Lundquist</small>
   </footer>
+
+  <script src="../js/main.js" defer></script>
   <script>
-    // Super simple: manually maintain an array of posts for now.
+    // Simple hand-rolled post index (add more here)
     const posts = [
-      { title: 'Hello, World', date: '2025-08-27', url: 'posts/hello-world.html' },
+      { title: 'Hello, World', date: '2025-10-13', url: '../blog/posts/hello-world.html' },
     ];
     const ul = document.getElementById('post-list');
     posts.forEach(p => {
       const li = document.createElement('li');
-      li.innerHTML = `<a href="${p.url}">${p.title}</a> <small>— ${p.date}</small>`;
+      li.innerHTML = `
+      <a class="post-card" href="${p.url}">
+        <span class="post-card__title">${p.title}</span>
+        <time class="post-card__date" datetime="${p.date}">${p.date}</time>
+      </a>`;
       ul.appendChild(li);
     });
     document.getElementById('year').textContent = new Date().getFullYear();
