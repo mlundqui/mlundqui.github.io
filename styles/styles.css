@@ -2,7 +2,7 @@
 
 /* ========== Reset ========== */
 *, *::before, *::after { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
+html, body { margin: 0; padding: 0; overflow-x: hidden; }
 img { max-width: 100%; display: block; }
 
 
@@ -41,7 +41,8 @@ body {
   color: var(--text);
   line-height: 1.6;
   transition: background-color .25s ease, color .25s ease;
-  background: var(--bg);   /* keep base color; gradient is now on ::before */
+  background: var(--bg);
+  position: relative;
 }
 
 h1, h2, h3 {
@@ -80,6 +81,11 @@ a:hover { color: var(--accent); }
 .brand { font-size: 1.25rem; font-weight: 800; letter-spacing: .5px; color: var(--text-strong); }
 .brand .dot { color: var(--brand); }
 
+.nav-critter{
+  width: 40px;
+  height: auto;
+}
+
 .site-nav { display: flex; align-items: center; gap: 18px; }
 .site-nav a { color: var(--text); opacity: .9; }
 .site-nav a:hover {
@@ -110,7 +116,7 @@ a:hover { color: var(--accent); }
 .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; align-items: center; min-height: 55vh; }
 .hero__text h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; margin: 0 0 12px; }
 .hero__text p { color: var(--muted); opacity: .95; }
-.hero__media { justify-self: end; }
+.hero__media { justify-self: end; width: 100%; }
 
 /* ========== Buttons ========== */
 .btn{
@@ -133,7 +139,7 @@ a:hover { color: var(--accent); }
 .cta-row{ display:flex; gap:12px; margin-top:14px; }
 
 /* ========== Cards & grids ========== */
-.grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px; }
 
 .card{
   background: var(--surface);
@@ -149,7 +155,6 @@ a:hover { color: var(--accent); }
 @media (max-width: 860px){
   .hero{ grid-template-columns:1fr; }
   .hero__media{ justify-self:start; }
-  .grid{ grid-template-columns:1fr; }
 
   .nav-toggle{ display:inline-block; }
   .site-nav{
@@ -160,6 +165,8 @@ a:hover { color: var(--accent); }
     display: none; flex-direction: column; gap: 12px;
   }
   .site-nav.open{ display:flex; }
+
+  .about__cv{ flex-direction: column; }
 }
 
 /* ========== Dark theme (activated by html[data-theme="dark"]) ========== */
@@ -197,8 +204,7 @@ html[data-theme="dark"] .site-header::after{
 }
 
 /* Keep underline hover in both themes */
-.site-nav a:hover,
-.card__link:hover{ text-decoration: underline; text-underline-offset: 3px; }
+.site-nav a:hover{ text-decoration: underline; text-underline-offset: 3px; }
 
 /* ========== 3D Flip Photo ========== */
 .photo-flip{
@@ -252,10 +258,182 @@ html[data-theme="dark"] .photo-flip:hover .side{
 /* Flip hint */
 .flip-hint{
   text-align: center;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+  font-style: italic;
   color: var(--muted);
+  margin: 10px 0 0;
+}
+
+/* ========== Geocities GIF touches ========== */
+
+/* Wave dividers — CSS background tiling, guaranteed full-width */
+.gif-divider{
+  height: 60px;
+  background: url('../assets/waves.gif') repeat-x left center;
+  background-size: auto 100%;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+/* ========== Projects (no cards, GIF-forward) ========== */
+.section-heading{ text-align: center; }
+
+.project{
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  max-width: 850px;
+  margin: 32px auto;
+}
+.project__gif{
+  flex-shrink: 0;
+}
+.project__gif img{
+  width: 150px;
+  height: auto;
+}
+.project__text{ flex: 1; }
+.project__badges{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+.project__badges img{
+  height: 80px;
+  width: auto;
+}
+.project__link{
+  display: inline-block;
   margin-top: 8px;
-  opacity: 0.8;
+  color: var(--brand);
+  font-weight: 600;
+}
+.project__link:hover{
+  color: color-mix(in hsl, var(--brand) 85%, var(--accent));
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 860px){
+  .project{ flex-direction: column; text-align: center; }
+  .project__gif img{ width: 120px; }
+  .project__badges{ flex-direction: row; }
+}
+
+/* ========== About ========== */
+.about-header{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-content: center;
+}
+.about-header img{
+  width: 50px;
+  height: auto;
+}
+.about-header h2{
+  margin: 40px 0 16px;
+}
+.about__blurb{ text-align: center; }
+.about__cv{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 14px;
+}
+.about__cv-gif{
+  width: 220px;
+  height: auto;
+}
+
+/* ========== Contact ========== */
+.contact-row{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 24px;
+  margin-top: 16px;
+}
+.contact-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform .15s ease;
+}
+.contact-item:hover{
+  transform: translateY(-3px);
+  color: var(--accent);
+}
+.contact-item__label{
+  font-weight: 600;
+  font-size: 1rem;
+}
+.contact-item__icon{
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+/* ========== Edge critters ========== */
+.edge-critters{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+.critter{
+  position: absolute;
+  width: 100px;
+  height: auto;
+}
+.critter--left{ left: 80px; }
+.critter--right{ right: 80px; }
+.critter--flip{ transform: scaleX(-1); }
+
+@media (max-width: 1200px){
+  .edge-critters{ display: none; }
+}
+
+/* ========== Science GIF showcase (between projects) ========== */
+.gif-showcase{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin: 28px auto;
+  max-width: 850px;
+}
+.gif-showcase img{
+  height: 150px;
+  width: auto;
+  border-radius: 8px;
+}
+
+.about__math-gif{
+  width: 120px;
+  height: auto;
+}
+
+/* ========== Footer ========== */
+.site-footer{ text-align: center; }
+.footer-sunset{
+  margin-bottom: 10px;
+}
+.footer-sunset img{
+  width: 150px;
+  display: inline-block;
 }
 
 /* ===== Blog list cards ===== */

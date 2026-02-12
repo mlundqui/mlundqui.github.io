@@ -23,14 +23,16 @@
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
+      <img src="assets/char.gif" alt="" class="nav-critter" />
     </nav>
     </div>
   </header>
 
+
   <main>
     <section class="hero container">
       <div class="hero__text">
-        <h1>Hi, I’m Mike.</h1>
+        <h1>Hi, I'm Mike.</h1>
         <p>Space Physics PhD Student at UCLA. Looking to pour my brain out onto the internet. This site is under active construction.
         </p>
         <div class="cta-row">
@@ -38,79 +40,116 @@
           <a class="btn btn--ghost" href="/blog/">Read the Blog</a>
         </div>
       </div>
-      <div
-        id="hero-photo"
-        class="photo-flip"
-        role="button"
-        tabindex="0"
-        aria-label="Flip photo"
-      >
-        <img class="side front" src="assets/student.gif" alt="Mike – student gif" loading="lazy" width="600" />
-        <img class="side back"  src="assets/me.jpg"       alt="Mike – portrait"    loading="lazy" width="600" />
+      <div class="hero__media">
+        <div
+          id="hero-photo"
+          class="photo-flip"
+          role="button"
+          tabindex="0"
+          aria-label="Flip photo"
+        >
+          <img class="side front" src="assets/student.gif" alt="Mike – student gif" loading="lazy" width="600" />
+          <img class="side back"  src="assets/me.jpg"       alt="Mike – portrait"    loading="lazy" width="600" />
+        </div>
+        <p class="flip-hint">Click to flip!</p>
       </div>
-      <p class="flip-hint">Click the image to flip!</p>
     </section>
+
+    <div class="gif-divider"></div>
 
     <section id="projects" class="container">
-      <h2>Featured Projects</h2>
-      <div class="grid">
-        <article class="card">
+      <h2 class="section-heading">Featured Projects</h2>
+
+      <!-- PhD Studies -->
+      <div class="project">
+        <div class="project__gif">
+          <img src="assets/satellite.gif" alt="Satellite" loading="lazy" />
+        </div>
+        <div class="project__text">
           <h3>PhD Studies</h3>
           <p>My research aims to unravel the dynamics of the coupled Magnetosphere, Ionosphere, Thermosphere system. Answering these questions should help us better mitigate detrimental space weather events.</p>
-	
-          <a class="card__link" href="#">Overview →</a>
-        </article>
-        
-        <article class="card">
+          <a class="project__link" href="https://scholar.google.com/citations?user=-rBAop4AAAAJ&hl=en&authuser=1" target="_blank" rel="noopener">Publications →</a>
+          <div class="project__badges">
+            <img src="assets/spaceweather.gif" alt="Space Weather" loading="lazy" />
+            <img src="assets/spacemodels.gif" alt="Space Models" loading="lazy" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Science showcase -->
+      <div class="gif-showcase">
+        <img src="assets/solarsystem.gif" alt="Solar System" loading="lazy" />
+        <img src="assets/3dfunction.gif" alt="3D Function" loading="lazy" />
+        <img src="assets/sines.gif" alt="Sine Waves" loading="lazy" />
+      </div>
+
+      <!-- Blog -->
+      <div class="project">
+        <div class="project__gif">
+          <img src="assets/wizard.gif" alt="Wizard" loading="lazy" />
+        </div>
+        <div class="project__text">
           <h3>Blog</h3>
           <p>Listen to me think</p>
-          <a class="card__link" href="#">Overview →</a>
-        </article>
+          <a class="project__link" href="/blog/">Overview →</a>
+          <div class="project__badges">
+            <img src="assets/book.gif" alt="Book" loading="lazy" />
+            <img src="assets/computer_on_fire.gif" alt="Computer on fire" loading="lazy" />
+          </div>
+        </div>
       </div>
     </section>
+
+    <div class="gif-divider"></div>
 
     <section id="about" class="container">
-      <h2>About</h2>
-      <p>
+      <div class="about-header">
+        <img src="assets/sun-glasses.gif" alt="Cool sun" loading="lazy" />
+        <h2>About</h2>
+        <img src="assets/sun-glasses.gif" alt="Cool sun" loading="lazy" />
+      </div>
+      <p class="about__blurb">
         I want to make science cool, in a really funny way.
       </p>
-      <div class="cta-row">
-    <!-- View in new tab -->
-    <a class="btn" href="/assets/LundquistCV.pdf" target="_blank" rel="noopener">
-      View CV (PDF)
-    </a>
-
-    <!-- Optional: force a download -->
-    <a class="btn btn--ghost" href="/assets/LundquistCV.pdf" download>
-      Download CV
-    </a>
-  </div>
+      <div class="about__cv">
+        <img src="assets/cv.gif" alt="CV" loading="lazy" class="about__cv-gif" />
+        <div class="cta-row">
+          <a class="btn" href="/assets/LundquistCV.pdf" target="_blank" rel="noopener">
+            View CV (PDF)
+          </a>
+          <a class="btn btn--ghost" href="/assets/LundquistCV.pdf" download>
+            Download CV
+          </a>
+        </div>
+        <img src="assets/math.gif" alt="Math" loading="lazy" class="about__math-gif" />
+      </div>
     </section>
 
+    <div class="gif-divider"></div>
+
     <section id="contact" class="container">
-      <h2>Contact</h2>
-	<div class="cta-row">
-    <div class="container">
-      <p style="text-align: center;"><a href="mailto:mlundqui@ucla.edu">Email</a></p>
-      <a href="mailto:mlundqui@ucla.edu"><img src="assets/grave_email.gif" alt="Fire Email Gif" loading="lazy" width="180px"/></a>
-	    
-    </div>
-    <div class="container">
-      <p style="text-align: center;"><a href="https://github.com/mlundqui" target="_blank" rel="noopener">GitHub</a></p>
-      <a href="https://github.com/mlundqui"><img src="assets/github.gif" alt="Github Gif" loading="lazy" width="180px"/></a>
-      
+      <h2 class="section-heading">Contact</h2>
+      <div class="contact-row">
+        <a href="mailto:mlundqui@ucla.edu" class="contact-item">
+          <span class="contact-item__label">Email</span>
+          <img src="assets/grave_email.gif" alt="Email" loading="lazy" class="contact-item__icon" />
+        </a>
+        <a href="https://github.com/mlundqui" target="_blank" rel="noopener" class="contact-item">
+          <span class="contact-item__label">GitHub</span>
+          <img src="assets/github.gif" alt="Github" loading="lazy" class="contact-item__icon" />
+        </a>
+        <a href="https://www.linkedin.com/in/mlundqui/" target="_blank" rel="noopener" class="contact-item">
+          <span class="contact-item__label">LinkedIn</span>
+          <img src="assets/linkedin.gif" alt="LinkedIn" loading="lazy" class="contact-item__icon" />
+        </a>
       </div>
-    <div class="container">
-      <p style="text-align: center;"><a href="https://www.linkedin.com/in/mlundqui/" target="_blank" rel="noopener">LinkedIn</a></p>
-      <a href="https://www.linkedin.com/in/mlundqui/"><img src="assets/linkedin.gif" alt="LinkedIn Gif" loading="lazy" width="180px"/></a>
-      
-      </div>
-  </div>
-  
-	</section>
+    </section>
   </main>
 
   <footer class="site-footer container">
+    <div class="footer-sunset">
+      <img src="assets/sunset.gif" alt="Sunset" loading="lazy" />
+    </div>
     <small>© <span id="year"></span> Michael Lundquist. All rights reserved.</small>
   </footer>
 
