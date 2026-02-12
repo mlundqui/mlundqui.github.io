@@ -249,6 +249,15 @@ html[data-theme="dark"] .photo-flip:hover .side{
   .photo-flip .side{ transition: none; }
 }
 
+/* Flip hint */
+.flip-hint{
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 8px;
+  opacity: 0.8;
+}
+
 /* ===== Blog list cards ===== */
 .post-list{
   list-style: none;
