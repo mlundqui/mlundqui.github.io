@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Michael Lundquist — Home</title>
+  <title>~*~ Mike's Homepage ~*~</title>
   <meta name="description" content="Personal website of Michael Lundquist: projects, blog, and contact." />
   <link rel="icon" href="assets/gratefuldead.gif" type="image/gif" />
   <link rel="preload" href="styles/styles.css" as="style" />
   <link rel="stylesheet" href="styles/styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600..900&family=Nunito:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
 
 </head>
 <body>
   <header class="site-header">
     <div class="container">
-    <a class="brand" href="/">ML<span class="dot">.</span></a>
+    <a class="brand" href="/">~ML~<span class="dot">.</span></a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">☰</button>
     <nav id="site-nav" class="site-nav" aria-label="Primary">
       <a href="/">Home</a>
@@ -22,19 +22,30 @@
       <a href="/blog/">Blog</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
       <img src="assets/char.gif" alt="" class="nav-critter" />
     </nav>
     </div>
   </header>
 
+  <!-- Marquee banner -->
+  <div class="geocities-marquee">
+    <marquee behavior="scroll" direction="left" scrollamount="4">
+      ~*~ Welcome to Mike's Homepage!!! ~*~ Space Physics PhD Student ~*~ Last updated March 2026 ~*~ You are visitor #<span id="hit-count">000427</span> ~*~
+    </marquee>
+  </div>
 
   <main>
     <section class="hero container">
       <div class="hero__text">
-        <h1>Hi, I'm Mike.</h1>
-        <p>Space Physics PhD Student at UCLA. Looking to pour my brain out onto the internet. This site is under active construction.
-        </p>
+        <img src="assets/welcometo.gif" alt="Welcome to" class="welcome-gif" loading="lazy" />
+        <h1>~*~ Mike's Homepage ~*~</h1>
+        <p>Space Physics PhD Student at UCLA. Stay as long as you'd like.</p>
+        <p class="blink" style="color: #FF0000; font-weight: 700; text-align: center;">*** UNDER CONSTRUCTION ***</p>
+        <div class="under-construction">
+          <img src="assets/unc.gif" alt="Under construction" loading="lazy" />
+          This site is under active construction!!!
+          <img src="assets/unc.gif" alt="Under construction" loading="lazy" />
+        </div>
         <div class="cta-row">
           <a class="btn" href="#projects">View Projects</a>
           <a class="btn btn--ghost" href="/blog/">Read the Blog</a>
@@ -48,17 +59,32 @@
           tabindex="0"
           aria-label="Flip photo"
         >
-          <img class="side front" src="assets/student.gif" alt="Mike – student gif" loading="lazy" width="600" />
-          <img class="side back"  src="assets/me.jpg"       alt="Mike – portrait"    loading="lazy" width="600" />
+          <img class="side front" src="assets/student.gif" alt="Mike – student gif" loading="lazy" width="1000" />
+          <img class="side back"  src="assets/me.jpg"       alt="Mike – portrait"    loading="lazy" width="1000" />
         </div>
         <p class="flip-hint">Click to flip!</p>
       </div>
+      <!-- Scattered hero GIFs -->
+      <img src="assets/pikachu.gif" alt="" class="hero-gif hero-gif--bl" loading="lazy" />
     </section>
 
-    <div class="gif-divider"></div>
+    <!-- Section divider: space GIFs -->
+    <hr class="rainbow-hr" />
+    <div class="gif-border">
+      <img src="assets/arrowleft.gif" alt="" loading="lazy" />
+      <img src="assets/earth.gif" alt="Earth" loading="lazy" />
+      <img src="assets/saturn.gif" alt="Saturn" loading="lazy" />
+      <img src="assets/ufo.gif" alt="UFO" loading="lazy" />
+      <img src="assets/arrowright.gif" alt="" loading="lazy" />
+    </div>
+    <hr class="rainbow-hr" />
 
-    <section id="projects" class="container">
-      <h2 class="section-heading">Featured Projects</h2>
+    <section id="projects" class="geocities-section">
+      <div class="section-heading" style="display:flex; align-items:center; justify-content:center; gap:12px;">
+        <img src="assets/flashlight.gif" alt="" loading="lazy" style="width:40px;" />
+        <h2>Featured Projects</h2>
+        <img src="assets/flashlight.gif" alt="" loading="lazy" style="width:40px;" />
+      </div>
 
       <!-- PhD Studies -->
       <div class="project">
@@ -76,12 +102,19 @@
         </div>
       </div>
 
+      <hr class="rainbow-hr" />
+
       <!-- Science showcase -->
       <div class="gif-showcase">
         <img src="assets/solarsystem.gif" alt="Solar System" loading="lazy" />
         <img src="assets/3dfunction.gif" alt="3D Function" loading="lazy" />
         <img src="assets/sines.gif" alt="Sine Waves" loading="lazy" />
+        <img src="assets/parabola.gif" alt="Parabola" loading="lazy" />
+        <img src="assets/sigma.gif" alt="Sigma" loading="lazy" />
+        <img src="assets/rabbitmath.gif" alt="Math rabbit" loading="lazy" />
       </div>
+
+      <hr class="rainbow-hr" />
 
       <!-- Blog -->
       <div class="project">
@@ -90,7 +123,7 @@
         </div>
         <div class="project__text">
           <h3>Blog</h3>
-          <p>Listen to me think</p>
+          <p>My Blog!!!</p>
           <a class="project__link" href="/blog/">Overview →</a>
           <div class="project__badges">
             <img src="assets/book.gif" alt="Book" loading="lazy" />
@@ -100,16 +133,26 @@
       </div>
     </section>
 
-    <div class="gif-divider"></div>
+    <!-- Section divider -->
+    <hr class="rainbow-hr" />
+    <div class="gif-border">
+      <img src="assets/arrowleft.gif" alt="" loading="lazy" />
+      <img src="assets/blackhole.gif" alt="Black hole" loading="lazy" />
+      <img src="assets/tetrahedron.gif" alt="Tetrahedron" loading="lazy" />
+      <img src="assets/arrowright.gif" alt="" loading="lazy" />
+    </div>
+    <hr class="rainbow-hr" />
 
-    <section id="about" class="container">
+    <section id="about" class="geocities-section">
       <div class="about-header">
+        <img src="assets/cool.gif" alt="Cool" loading="lazy" />
         <img src="assets/sun-glasses.gif" alt="Cool sun" loading="lazy" />
         <h2>About</h2>
         <img src="assets/sun-glasses.gif" alt="Cool sun" loading="lazy" />
+        <img src="assets/cool.gif" alt="Cool" loading="lazy" />
       </div>
       <p class="about__blurb">
-        I want to make science cool, in a really funny way.
+        Check out my CV!
       </p>
       <div class="about__cv">
         <img src="assets/cv.gif" alt="CV" loading="lazy" class="about__cv-gif" />
@@ -123,12 +166,30 @@
         </div>
         <img src="assets/math.gif" alt="Math" loading="lazy" class="about__math-gif" />
       </div>
+      <div style="text-align:center; margin-top:12px;">
+        <img src="assets/mikesmath.gif" alt="Mike's Math" loading="lazy" style="max-width:200px; margin:0 auto;" />
+      </div>
+      <div class="guestbook-link">
+        <a href="#contact">*** Sign my Guestbook!!! ***</a>
+      </div>
     </section>
 
-    <div class="gif-divider"></div>
+    <!-- Section divider -->
+    <hr class="rainbow-hr" />
+    <div class="gif-border">
+      <img src="assets/arrowleft.gif" alt="" loading="lazy" />
+      <img src="assets/email.gif" alt="Email" loading="lazy" />
+      <img src="assets/email2.gif" alt="Email" loading="lazy" />
+      <img src="assets/arrowright.gif" alt="" loading="lazy" />
+    </div>
+    <hr class="rainbow-hr" />
 
-    <section id="contact" class="container">
-      <h2 class="section-heading">Contact</h2>
+    <section id="contact" class="geocities-section">
+      <div style="display:flex; align-items:center; justify-content:center; gap:12px;">
+        <img src="assets/mailman.gif" alt="Mailman" loading="lazy" style="width:50px;" />
+        <h2 class="section-heading">Contact</h2>
+        <img src="assets/mailman.gif" alt="Mailman" loading="lazy" style="width:50px;" />
+      </div>
       <div class="contact-row">
         <a href="mailto:mlundqui@ucla.edu" class="contact-item">
           <span class="contact-item__label">Email</span>
@@ -146,12 +207,30 @@
     </section>
   </main>
 
-  <footer class="site-footer container">
+  <footer class="site-footer">
     <div class="footer-sunset">
-      <img src="assets/sunset.gif" alt="Sunset" loading="lazy" />
+      <img src="assets/sunset2.gif" alt="Sunset" loading="lazy" />
+    </div>
+    <div class="hit-counter">
+      Visitors: <span id="hit-count-footer">000427</span>
+    </div>
+    <div class="footer-badges">
+      <a href="/">
+        <img src="assets/homebutton.gif" alt="Home" loading="lazy" />
+      </a>
+      <img src="assets/area51bb.gif" alt="Area 51" loading="lazy" />
+      <img src="assets/linuxpenguin.gif" alt="Linux" loading="lazy" />
     </div>
     <small>© <span id="year"></span> Michael Lundquist. All rights reserved.</small>
+    <div class="footer-easter-egg">
+      <img src="assets/homer.gif" alt="" loading="lazy" />
+    </div>
   </footer>
+
+  <!-- Floating corner GIFs -->
+  <img src="assets/earth.gif" alt="" class="floating-gif floating-gif--tl" loading="lazy" />
+  <img src="assets/blackhole.gif" alt="" class="floating-gif floating-gif--tr" loading="lazy" />
+  <img src="assets/spinningskull.gif" alt="" class="floating-gif floating-gif--br" loading="lazy" />
 
   <script src="js/main.js" defer></script>
 </body>
