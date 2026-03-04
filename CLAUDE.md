@@ -21,7 +21,7 @@ python -m http.server 8000
 ## Architecture
 
 - **Single-page home** (`index.html`) with hash-anchored sections: `#projects`, `#about`, `#contact`
-- **Blog** (`blog/index.html` + `blog/posts/*.html`) — manually maintained. Posts are listed in a JS array in `blog/index.html` and each post is a standalone HTML file.
+- **Blog** (`blog/index.html` listing + `blog/post.html` template) — Markdown-based, client-side rendered with marked.js. See "Writing Blog Posts" below.
 - **One JS file** (`js/main.js`) handles all interactivity: mobile nav toggle, theme persistence, hero photo flip
 - **One CSS file** (`styles/styles.css`) with CSS custom properties for theming
 
@@ -36,3 +36,30 @@ Light/dark mode uses `data-theme="dark"` on the `<html>` element. Light is the d
 - **JS:** Vanilla ES6+, no `var`, optional chaining for safe DOM access, IIFE for scoped features
 - **Fonts:** Fraunces (headings), Nunito (body), IBM Plex Mono (code)
 - **Git workflow:** `develop` branch → `main` via PR
+
+## Writing Blog Posts
+
+Posts are written in Markdown and rendered client-side by [marked.js](https://cdn.jsdelivr.net/npm/marked/marked.min.js). No build step required.
+
+### To publish a new post:
+
+1. **Create the Markdown file** at `blog/posts/<slug>.md` — write pure Markdown content (no HTML boilerplate needed)
+2. **Add an entry to `blog/posts/posts.json`:**
+   ```json
+   { "slug": "my-new-post", "title": "My New Post", "date": "2026-03-04", "description": "A short summary." }
+   ```
+3. **Push to GitHub** — that's it
+
+### How it works:
+
+- `blog/posts/posts.json` is the single source of truth for all posts
+- `blog/index.html` fetches `posts.json`, auto-sorts by date (newest first), and renders post cards
+- `blog/post.html` is the universal post template — it reads `?slug=` from the URL, fetches the matching `.md` file, and renders it with marked.js
+- Post URLs follow the pattern: `/blog/post.html?slug=<slug>`
+
+### Conventions:
+
+- **Slugs** should be lowercase, hyphen-separated (e.g., `my-great-post`)
+- **Dates** use `YYYY-MM-DD` format
+- Markdown files contain **only content** — title, date, and page chrome are handled by the template
+- To add images in a post, use standard Markdown: `![alt text](url)`
