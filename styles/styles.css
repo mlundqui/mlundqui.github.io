@@ -585,6 +585,13 @@ a:hover { color: #FF0000; text-decoration: underline overline; }
 .post a { color: var(--accent); }
 .post .muted { color: var(--muted); }
 
+/* Markdown-rendered content */
+.post h2, .post h3 { margin-top: 1.5rem; }
+.post ul, .post ol { padding-left: 1.5rem; }
+.post pre { background: rgba(0,0,0,0.5); padding: 1rem; overflow-x: auto; }
+.post code { font-family: var(--font-mono); }
+.post blockquote { border-left: 3px solid var(--accent); padding-left: 1rem; color: var(--muted); }
+
 /* ========== Responsive ========== */
 @media (max-width: 860px) {
   .hero { grid-template-columns: 1fr; }

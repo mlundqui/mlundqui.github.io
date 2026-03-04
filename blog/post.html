@@ -4,12 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>~*~ Mike's Blog ~*~</title>
-  <meta name="description" content="Blog posts by Michael Lundquist." />
+  <meta name="description" content="" />
   <link rel="icon" href="../assets/gratefuldead.gif" type="image/gif" />
   <link rel="preload" href="../styles/styles.css" as="style" />
   <link rel="stylesheet" href="../styles/styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
-
 </head>
 <body>
   <header class="site-header">
@@ -28,19 +27,32 @@
 
   <div class="geocities-marquee">
     <marquee behavior="scroll" direction="left" scrollamount="4">
-      ~*~ Mike's Blog ~*~ Thoughts from the void ~*~ Best viewed in Netscape Navigator 4.0 ~*~
+      ~*~ Mike's Blog ~*~ You are reading: <span id="marquee-title">...</span> ~*~
     </marquee>
   </div>
 
   <main class="container">
     <div class="geocities-section">
-      <div style="display:flex; align-items:center; justify-content:center; gap:12px;">
-        <img src="../assets/books.gif" alt="Books" loading="lazy" style="width:40px;" />
-        <h1>Blog</h1>
-        <img src="../assets/wizard3.gif" alt="Wizard" loading="lazy" style="width:50px;" />
+      <article class="post" id="post-content">
+        <header>
+          <h1 id="post-title"></h1>
+          <p class="muted"><time id="post-date" datetime=""></time></p>
+        </header>
+
+        <hr class="rainbow-hr" />
+
+        <div id="post-body">Loading...</div>
+
+        <hr class="rainbow-hr" />
+
+        <footer style="margin-top:2rem">
+          <a href="/blog/">← Back to Blog</a>
+        </footer>
+      </article>
+      <div style="text-align:center; margin-top:16px;">
+        <img src="../assets/wizard2.gif" alt="Wizard" loading="lazy" style="width:60px;" />
+        <img src="../assets/notebook.gif" alt="Notebook" loading="lazy" style="width:50px;" />
       </div>
-      <hr class="rainbow-hr" />
-      <ul class="post-list" id="post-list"></ul>
     </div>
   </main>
 
@@ -65,21 +77,37 @@
   </footer>
 
   <script src="../js/main.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
     (async function () {
-      const res = await fetch('/blog/posts/posts.json');
-      const posts = await res.json();
-      posts.sort((a, b) => b.date.localeCompare(a.date));
-      const ul = document.getElementById('post-list');
-      posts.forEach(p => {
-        const li = document.createElement('li');
-        li.innerHTML = `
-        <a class="post-card" href="/blog/post.html?slug=${p.slug}">
-          <span class="post-card__title">${p.title}</span>
-          <time class="post-card__date" datetime="${p.date}">${p.date}</time>
-        </a>`;
-        ul.appendChild(li);
-      });
+      const slug = new URLSearchParams(location.search).get('slug');
+      if (!slug) { location.href = '/blog/'; return; }
+
+      try {
+        const res = await fetch('/blog/posts/posts.json');
+        const posts = await res.json();
+        const meta = posts.find(p => p.slug === slug);
+        if (!meta) { location.href = '/blog/'; return; }
+
+        document.title = meta.title + ' — ~*~ Mike\'s Blog ~*~';
+        document.querySelector('meta[name="description"]').content = meta.description || '';
+        document.getElementById('marquee-title').textContent = meta.title;
+        document.getElementById('post-title').textContent = meta.title;
+
+        const dateEl = document.getElementById('post-date');
+        dateEl.setAttribute('datetime', meta.date);
+        dateEl.textContent = new Date(meta.date + 'T00:00:00').toLocaleDateString('en-US', {
+          year: 'numeric', month: 'long', day: 'numeric'
+        });
+
+        const mdRes = await fetch('/blog/posts/' + slug + '.md');
+        if (!mdRes.ok) throw new Error('Post not found');
+        const md = await mdRes.text();
+        document.getElementById('post-body').innerHTML = marked.parse(md);
+      } catch (e) {
+        document.getElementById('post-body').innerHTML = '<p>Error loading post.</p>';
+      }
+
       document.getElementById('year').textContent = new Date().getFullYear();
     })();
   </script>
